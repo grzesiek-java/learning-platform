@@ -35,6 +35,7 @@ public class AppConfig implements WebMvcConfigurer {
     public JpaTransactionManager transactionManager(EntityManagerFactory emf) {
         return new JpaTransactionManager(emf);
     }
+
     @Bean
     public ViewResolver viewResolver() {
         InternalResourceViewResolver viewResolver =
