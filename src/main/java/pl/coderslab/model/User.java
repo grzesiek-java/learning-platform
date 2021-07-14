@@ -3,8 +3,11 @@ package pl.coderslab.model;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
+
 
 @Getter
 @Setter
@@ -19,18 +22,28 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+
+    @Size(min = 2)
+    @Valid
+    @Column(columnDefinition = "varchar(20)")
     private String firstName;
 
+    @Size(min = 2)
+    @Valid
+    @Column(columnDefinition = "varchar(50)")
     private String lastName;
 
-    @Column(unique = true)
-    @NotNull
-    @Email
+
+    @NotEmpty(message = "podaj email")
+    @Email(message = "podaj właściwy email")
+    @Valid
+    @Column(unique = true, columnDefinition = "varchar(50)")
     private String email;
 
-    @NotNull
+    @Size(min = 8,message = "min.8 znaków")
+    @Column(columnDefinition = "varchar(255)")
     private String password;
 
-    @NotNull
+    @Column(columnDefinition = "varchar(10)")
     private String role;
 }

@@ -12,7 +12,7 @@
     <title>students list</title>
 </head>
 <body>
-<h3>Students list</h3>
+<h3>Lista uczniów</h3>
 <table border="1" cellpadding="10" style="background-color: #f0f0f0">
     <thead>
         <th>ID</th>
