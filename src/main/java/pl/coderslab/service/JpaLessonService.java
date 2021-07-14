@@ -5,6 +5,7 @@ import pl.coderslab.model.Lesson;
 import pl.coderslab.repository.LessonRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JpaLessonService implements LessonService{
@@ -22,6 +23,16 @@ public class JpaLessonService implements LessonService{
     @Override
     public void add(Lesson lesson){
         lessonRepository.save(lesson);
+    }
+
+    @Override
+    public Optional<Lesson> get(Long id) {
+        return lessonRepository.findById(id);
+    }
+
+    @Override
+    public void delete(Long id) {
+        lessonRepository.deleteById(id);
     }
 
 }

@@ -4,9 +4,7 @@ package pl.coderslab.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Lesson;
 import pl.coderslab.model.User;
 import pl.coderslab.service.LessonService;
@@ -14,6 +12,7 @@ import pl.coderslab.service.UserService;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 @RequestMapping(value = "/teacher")
@@ -56,5 +55,16 @@ public class TeacherController {
         }
         lessonService.add(lesson);
         return "redirect:/test";
+    }
+    @GetMapping("/deleteLesson/{id}")
+    public String deleteGet(@PathVariable Long id, Model model) {
+        Optional<Lesson> lesson = lessonService.get(id);
+        model.addAttribute("lesson", lesson.get());
+        return "/teacher/deleteLesson";
+    }
+    @PostMapping("/deleteLesson/{id}")
+    public String deletePost(@RequestParam Long id){
+        lessonService.delete(id);
+        return "redirect:/teacher/allLessons";
     }
 }
