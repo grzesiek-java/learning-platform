@@ -56,6 +56,32 @@ public class TeacherController {
         lessonService.add(lesson);
         return "redirect:/test";
     }
+
+
+
+    @GetMapping(value = "/editLesson/{id}")
+    public String updateLesson(@PathVariable long id, Model model) {
+        Optional<Lesson> lesson = lessonService.get(id);
+        model.addAttribute("lesson", lesson.get());
+        return "teacher/editLesson";
+    }
+    @PostMapping(value = "/editLesson/{id}")
+    public String saveUpdatedLesson(@Valid Lesson lesson, BindingResult result) {
+        if (result.hasErrors()) {
+            return "teacher/editLesson";
+        }
+        lessonService.add(lesson);
+        return "redirect:/teacher/allLessons";
+    }
+
+    @GetMapping("/showLesson/{id}")
+    public String showLesson(@PathVariable long id, Model model) {
+        Optional<Lesson> lesson = lessonService.get(id);
+        model.addAttribute("lesson", lesson.get());
+        return "teacher/showLesson";
+    }
+
+
     @GetMapping("/deleteLesson/{id}")
     public String deleteGet(@PathVariable Long id, Model model) {
         Optional<Lesson> lesson = lessonService.get(id);
