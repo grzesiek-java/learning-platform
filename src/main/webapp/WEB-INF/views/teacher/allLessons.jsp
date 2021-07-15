@@ -27,7 +27,7 @@
       <td><c:out value="${lesson.id}"/></td>
       <td><c:out value="${lesson.title}"/></td>
       <td>
-        <a href="<c:out value="/teacher/editLesson/${lesson.id}"/>">EDYTUJ</a>
+        <a href="<c:out value="/teacher/editLesson/${lesson.id}"/>">EDYTUJ</a>&nbsp;&nbsp;
         <a href="<c:out value="/teacher/deleteLesson/${lesson.id}"/>">USUŃ</a>&nbsp;&nbsp;
         <a href="<c:out value="/teacher/showLesson/${lesson.id}"/>">POKAŻ</a>
       </td>
@@ -38,6 +38,6 @@
   </c:forEach>
   </tbody>
 </table>
-
+<h3><a href="/teacher/panel">powrót do panelu</a></h3>
 </body>
 </html>

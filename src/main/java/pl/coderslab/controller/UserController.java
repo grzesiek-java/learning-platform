@@ -24,4 +24,8 @@ public class UserController {
         return "user/testU";
     }
 
+    @GetMapping(value = "/panel")
+    public String panelU(){
+        return "user/userPanel";
+    }
 }

@@ -31,5 +31,6 @@
     </c:forEach>
     </tbody>
 </table>
+<h3><a href="/teacher/panel">powrót do panelu</a></h3>
 </body>
 </html>

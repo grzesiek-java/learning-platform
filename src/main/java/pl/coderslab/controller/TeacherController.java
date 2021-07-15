@@ -30,6 +30,12 @@ public class TeacherController {
     public String test(){
         return "teacher/testT";
     }
+
+    @GetMapping(value = "/panel")
+    public String panelT(){
+        return "teacher/teacherPanel";
+    }
+
     @GetMapping(value = "/allUsers")
     public String showUsers(Model model){
         List<User> users = userService.getUsers();

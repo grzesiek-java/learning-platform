@@ -25,6 +25,11 @@ public class VisitorController {
         return "visitor/testV";
     }
 
+    @GetMapping(value = "/panel")
+    public String panelV(){
+        return "visitor/visitorPanel";
+    }
+
     @GetMapping(value = "/register")
     public String addUser(Model model){
         model.addAttribute("user",new User());
@@ -36,7 +41,7 @@ public class VisitorController {
             return "visitor/register";
         }
         userService.add(user);
-        return "redirect:/test";
+        return "redirect:/panel";
     }
 
 }
