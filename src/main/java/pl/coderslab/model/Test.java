@@ -35,4 +35,8 @@ public class Test {
 
     @NotNull
     private int correct;
+
+//    @OneToOne
+//    @JoinColumn(name = "lesson_id")
+//    private Lesson lesson;
 }

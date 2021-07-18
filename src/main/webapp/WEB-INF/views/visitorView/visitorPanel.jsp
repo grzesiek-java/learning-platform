@@ -1,11 +1,10 @@
 <%--
   Created by IntelliJ IDEA.
   User: mocni
-  Date: 13.07.2021
-  Time: 13:52
+  Date: 15.07.2021
+  Time: 08:22
   To change this template use File | Settings | File Templates.
 --%>
-<%--<jsp:include page="WEB-INF/views/header.jsp"/>--%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -21,4 +20,3 @@
 </ul>
 </body>
 </html>
-<%--<jsp:include page="WEB-INF/views/footer.jsp"/>--%>

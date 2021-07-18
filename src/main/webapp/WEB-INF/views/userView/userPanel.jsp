@@ -11,6 +11,9 @@
     <title>Panel ucznia</title>
 </head>
 <body>
-Na  razie pusto... strona w budowie itd...
+<ul>
+    <li><h3><a href="/register">Dodaj ucznia</a></h3></li>
+    <li><h3><a href="/logout">Wyloguj</a></h3></li>
+</ul>
 </body>
 </html>

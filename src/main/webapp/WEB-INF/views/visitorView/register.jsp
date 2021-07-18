@@ -21,7 +21,6 @@
     <tr><td>EMAIL</td><td><form:input path="email"/> <form:errors path="email"/></td></tr>
     <tr><td>HASŁO</td><td><form:password path="password"/> <form:errors path="password"/></td></tr>
   </table>
-  <form:hidden path="role" value="student"/>
   <p> </p>
   <h2><input type="submit" value="ZAPISZ"></h2>
 

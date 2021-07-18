@@ -21,11 +21,11 @@ public class UserController {
 
     @GetMapping("/test")
     public String test(){
-        return "user/testU";
+        return "userView/testU";
     }
 
     @GetMapping(value = "/panel")
     public String panelU(){
-        return "user/userPanel";
+        return "userView/userPanel";
     }
 }

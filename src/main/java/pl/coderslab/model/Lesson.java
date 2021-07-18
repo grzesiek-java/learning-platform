@@ -3,7 +3,7 @@ package pl.coderslab.model;
 import lombok.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import java.util.List;
 
 @Getter
 @Setter
@@ -26,5 +26,10 @@ public class Lesson {
     @Column(columnDefinition = "varchar(6000)") // max 65k
     private String content;
 
+    @ManyToOne
+    private Section section;
 
+    //@OneToOne(mappedBy = "lesson", cascade = CascadeType.ALL)
+//    @OneToOne(mappedBy = "lesson")
+//    private Test test;
 }

@@ -17,6 +17,8 @@
     <li><h3><a href="/teacher/allUsers">Lista uczniów</a></h3></li>
     <li><h3><a href="/teacher/addLesson">Dodaj lekcję</a></h3></li>
     <li><h3><a href="/teacher/allLessons">Lista Lekcji</a></h3></li>
+    <li><h3><a href="/teacher/addSection">Dodaj rozdział</a></h3></li>
+    <li><h3><a href="/logout">Wyloguj</a></h3></li>
 </ul>
 
 </body>

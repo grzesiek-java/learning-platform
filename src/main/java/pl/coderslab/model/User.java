@@ -1,12 +1,13 @@
 package pl.coderslab.model;
 
 import lombok.*;
-
 import javax.persistence.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.ArrayList;
+import java.util.List;
 
 
 @Getter
@@ -44,6 +45,8 @@ public class User {
     @Column(columnDefinition = "varchar(255)")
     private String password;
 
-    @Column(columnDefinition = "varchar(10)")
-    private String role;
+    private int admin = 0;
+
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Section> sections = new ArrayList<>();
 }

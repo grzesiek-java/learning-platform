@@ -16,7 +16,7 @@
 <form:form method="post" modelAttribute="lesson">
 
     <table border="1" cellpadding="5" style="background-color: lightgrey">
-        <tr><td>TYTUŁ LEKCJI</td><td><form:input size="100" path="title"/> <form:errors path="title"/></td></tr>
+        <tr><td>TEMAT LEKCJI</td><td><form:input size="100" path="title"/> <form:errors path="title"/></td></tr>
         <tr><td>TREŚĆ LEKCJI</td><td><form:textarea cols="150" rows="40" path="content"/> <form:errors path="content"/></td></tr>
 <%--        <tr><td>ROZDZIAŁ</td><td><form:input path="chapter"/> <form:errors path="chapter"/></td></tr>--%>
     </table>
