@@ -12,7 +12,7 @@
     <title>Title</title>
 </head>
 <h3>Logowanie do platformy.</h3>
-<form:form method="post" action="/login">
+<form:form method="post" action="/login" modelAttribute="user">
 
     <table border="1" cellpadding="5" style="background-color: lightgoldenrodyellow">
         <tr><td>EMAIL</td><td><input name="email" type="email"/></td></tr>

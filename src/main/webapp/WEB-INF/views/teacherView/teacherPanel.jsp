@@ -11,6 +11,8 @@
     <title>Panel Nauczyciela</title>
 </head>
 <body>
+<h1>Witaj ${sessionScope.user.firstName} w panelu nauczyciela</h1>
+
 
 <ul>
     <li><h3><a href="/register">Dodaj ucznia</a></h3></li>
@@ -18,6 +20,8 @@
     <li><h3><a href="/teacher/addLesson">Dodaj lekcję</a></h3></li>
     <li><h3><a href="/teacher/allLessons">Lista Lekcji</a></h3></li>
     <li><h3><a href="/teacher/addSection">Dodaj rozdział</a></h3></li>
+    <li><h3><a href="/teacher/allSections">Lista rozdziałów</a></h3></li>
+    <li><h3><a href="/teacher/addLessonSection">Dodaj lekcję do rozdziału</a></h3></li>
     <li><h3><a href="/logout">Wyloguj</a></h3></li>
 </ul>
 

@@ -65,12 +65,13 @@ public class TeacherController {
 
     @GetMapping(value = "/addLesson")
     public String addLesson(Model model) {
+        List<Section> sections = sectionService.getSections();
+        model.addAttribute("sections",sections);
         model.addAttribute("lesson", new Lesson());
         return "teacherView/addLesson";
     }
-
     @PostMapping(value = "/addLesson")
-    public String saveLesson(@Valid Lesson lesson, BindingResult result) {
+    public String saveLesson(Lesson lesson, BindingResult result) {
         if (result.hasErrors()) {
             return "/teacherView/addLesson";
         }
@@ -116,6 +117,13 @@ public class TeacherController {
 
 // sections
 
+    @GetMapping(value = "/allSections")
+    public String showSections(Model model) {
+        List<Section> sections = sectionService.getSections();
+        model.addAttribute("sections",sections);
+        return "teacherView/allSections";
+    }
+
     @GetMapping(value = "/addSection")
     public String addSection(Model model) {
         model.addAttribute("section", new Section());
@@ -130,6 +138,15 @@ public class TeacherController {
         sectionService.add(section);
         return "redirect:/teacher/panel";
     }
+    @GetMapping(value = "/addLessonSection")
+    public String addLessonSection(Model model) {
+        List<Section> sections = sectionService.getSections();
+        List<Lesson> lessons = lessonService.getLessons();
+        model.addAttribute("sections", sections);
+        model.addAttribute("lessons", lessons);
+        return "/teacherView/addLessonToSection";
+    }
+
 }
 
 //    @GetMapping(value = "/addLesson")
@@ -145,12 +162,6 @@ public class TeacherController {
 //        lessonService.add(lesson);
 //        return "redirect:/test";
 
-//    @GetMapping(value = "/addUserLesson")
-//    public String addUserLesson(Model model){
-//        List<User> users = userService.getUsers();
-//        List<Lesson> lessons = lessonService.getLessons();
-//        model.addAttribute("users",users);
-//        model.addAttribute("lessons",lessons);
-//        return "/teacher/addUserLesson";
+
 
 

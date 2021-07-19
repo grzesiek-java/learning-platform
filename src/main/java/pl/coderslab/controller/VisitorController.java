@@ -43,7 +43,7 @@ public class VisitorController {
     }
     @PostMapping(value = "/register")
     public String saveUser(@Valid User user, BindingResult result){
-         User user1= userService.findUserByEmail(user.getEmail());
+         User user1 = userService.findUserByEmail(user.getEmail());
         if (result.hasErrors()) {
             return "visitorView/register";
         } else if (user1 != null) {

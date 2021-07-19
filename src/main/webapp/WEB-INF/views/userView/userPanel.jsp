@@ -11,6 +11,7 @@
     <title>Panel ucznia</title>
 </head>
 <body>
+<h1>Witaj ${sessionScope.user.firstName} w panelu ucznia</h1>
 <ul>
     <li><h3><a href="/register">Dodaj ucznia</a></h3></li>
     <li><h3><a href="/logout">Wyloguj</a></h3></li>

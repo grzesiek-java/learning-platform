@@ -26,7 +26,7 @@ public class Lesson {
     @Column(columnDefinition = "varchar(6000)") // max 65k
     private String content;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     private Section section;
 
     //@OneToOne(mappedBy = "lesson", cascade = CascadeType.ALL)

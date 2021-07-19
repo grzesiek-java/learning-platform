@@ -29,7 +29,7 @@ public class Section {
 //    @ManyToMany(mappedBy = "sections",fetch = FetchType.LAZY)
 //    private List<User> users = new ArrayList<>();
 
-    @OneToMany(mappedBy = "section",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "section",fetch = FetchType.EAGER)
     private List<Lesson> lessons;
 
 

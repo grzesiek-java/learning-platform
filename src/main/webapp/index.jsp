@@ -12,7 +12,7 @@
     <title>Witamy</title>
 </head>
 <body>
-<h2>Witamy na na naszej platformie edukacyjnej</h2>
+<h2>Witamy na naszej platformie edukacyjnej</h2>
 <p></p>
 <h4>Platforma ma za zadanie wspomóc w nauce języka angielskiego opierając się na zamieszczonych materiałach edukacyjnych </h4>
 <ul>
