@@ -24,7 +24,6 @@
     <div class="divider"></div>
     <a href="/teacher/allSections">Lista rozdziałów</a>
     <a href="/teacher/addSection">Dodaj rozdział</a>
-    <a href="/teacher/addLessonSection">Dodaj lekcję do rozdziału</a>
     <div class="divider"></div>
     <a href="/logout">Wyjście</a></li>
 

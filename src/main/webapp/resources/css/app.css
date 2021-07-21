@@ -41,7 +41,7 @@ body {
 
 .tab1 td, .tab1 th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 6px;
 }
 
 /*.tab1 tr:nth-child(even){background-color: #f2f2f2;}*/
@@ -50,8 +50,8 @@ body {
 /*.tab1 tr:hover {background-color: #ddd;}*/
 
 .tab1 th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     text-align: left;
     background-color: lightskyblue;
     color: white;

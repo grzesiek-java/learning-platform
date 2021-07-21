@@ -9,7 +9,7 @@
             <thead>
             <th>ID</th>
             <th>NAZWA ROZDZIAŁU</th>
-            <th></th>
+            <th width="160px"></th>
             <%--    <th>TESTY</th>--%>
             </thead>
             <tbody>
@@ -18,9 +18,8 @@
                     <td><c:out value="${section.id}"/></td>
                     <td><c:out value="${section.name}"/></td>
                     <td>
-                        <a class="ui-button" href="<c:out value="/teacher/editLesson/${section.id}"/>">EDYTUJ</a>&nbsp;&nbsp;
-                        <a href="<c:out value="/teacher/deleteLesson/${section.id}"/>">USUŃ</a>&nbsp;&nbsp;
-                        <a href="<c:out value="/teacher/showLesson/${section.id}"/>">POKAŻ</a>
+                        <a class="btn btn-warning btn-sm" href="<c:out value="/teacher/editSection/${section.id}"/>">EDYTUJ</a>&nbsp;&nbsp;
+                        <a class="btn btn-danger btn-sm" href="<c:out value="/teacher/deleteSection/${section.id}"/>">USUŃ</a>
                     </td>
                 </tr>
             </c:forEach>

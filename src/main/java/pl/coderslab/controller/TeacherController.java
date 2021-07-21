@@ -107,14 +107,14 @@ public class TeacherController {
     }
 
     @GetMapping("/deleteLesson/{id}")
-    public String deleteGet(@PathVariable Long id, Model model) {
+    public String deleteLessonGet(@PathVariable Long id, Model model) {
         Optional<Lesson> lesson = lessonService.get(id);
         model.addAttribute("lesson", lesson.get());
         return "/teacherView/deleteLesson";
     }
 
     @PostMapping("/deleteLesson/{id}")
-    public String deletePost(@RequestParam Long id) {
+    public String deleteLessonPost(@RequestParam Long id) {
         lessonService.delete(id);
         return "redirect:/teacher/allLessons";
     }
@@ -140,31 +140,24 @@ public class TeacherController {
             return "/teacherView/addSection";
         }
         sectionService.add(section);
-        return "redirect:/teacher/panel";
-    }
-    @GetMapping(value = "/addLessonSection")
-    public String addLessonSection(Model model) {
-        List<Section> sections = sectionService.getSections();
-        List<Lesson> lessons = lessonService.getLessons();
-        model.addAttribute("sections", sections);
-        model.addAttribute("lessons", lessons);
-        return "/teacherView/addLessonToSection";
+        return "redirect:/teacher/allSections";
     }
 
+    @GetMapping("/deleteSection/{id}")
+    public String deleteSectionGet(@PathVariable Long id, Model model) {
+        Optional<Section> section = Optional.ofNullable(sectionService.get(id));
+        model.addAttribute("section",section.get());
+        return "/teacherView/deleteSection";
+    }
+
+    @PostMapping("/deleteSection/{id}")
+    public String deleteSectionPost(@RequestParam Long id) {
+        sectionService.delete(id);
+        return "redirect:/teacher/allSections";
+    }
 }
 
-//    @GetMapping(value = "/addLesson")
-//    public String addLesson(Model model){
-//        model.addAttribute("lesson",new Lesson());
-//        return "teacherView/addLesson";
-//    }
-//    @PostMapping(value = "/addLesson")
-//    public String saveLesson(@Valid Lesson lesson, BindingResult result){
-//        if (result.hasErrors()){
-//            return "/teacherView/addLesson";
-//        }
-//        lessonService.add(lesson);
-//        return "redirect:/test";
+
 
 
 

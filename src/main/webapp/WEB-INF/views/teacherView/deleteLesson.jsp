@@ -11,8 +11,7 @@
 
     <div class="card-body">
       <form method="post">
-        <p><input type="submit" class="btn btn-danger btn-block" value="USUŃ"></p>
-        <p><a class="btn btn-secondary btn-block" href="/teacher/allLessons">ANULUJ</a></p>
+        <p><input type="submit" class="btn btn-danger btn-block" value="USUŃ">&nbsp;<a class="btn btn-secondary btn-block" href="/teacher/allLessons">ANULUJ</a></p>
         <p><input type="hidden" name="id" value="${lesson.id}"></p>
       </form>
     </div>

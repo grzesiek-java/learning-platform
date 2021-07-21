@@ -33,7 +33,7 @@ public class Section {
 
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy = "section",fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "section",fetch = FetchType.EAGER,cascade = CascadeType.REMOVE)
     private List<Lesson> lessons;
 
 }
