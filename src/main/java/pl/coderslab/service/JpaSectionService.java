@@ -28,8 +28,8 @@ public class JpaSectionService implements SectionService {
     }
 
     @Override
-    public Optional<Section> get(Long id) {
-        return sectionRepository.findById(id);
+    public Section get(Long id) {
+        return sectionRepository.findById(id).orElse(null);
     }
 
     @Override

@@ -12,7 +12,7 @@ public interface SectionService {
 
     void add(Section section);
 
-    Optional<Section> get(Long id);
+    Section get(Long id);
 
     void delete(Long id);
 }

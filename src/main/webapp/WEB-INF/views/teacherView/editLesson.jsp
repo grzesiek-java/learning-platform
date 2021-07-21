@@ -13,7 +13,7 @@
 </head>
 <body>
 <h3>Edycja lekcji</h3>
-<form:form method="post" modelAttribute="lesson">
+<form:form method="post" modelAttribute="lessonDto">
 
     <table border="1" cellpadding="5" style="background-color: lightgrey">
         <tr><td>TYTUŁ LEKCJI</td><td><form:input size="100" path="title"/> <form:errors path="title"/></td></tr>
@@ -21,6 +21,19 @@
             <%--        <tr><td>ROZDZIAŁ</td><td><form:input path="chapter"/> <form:errors path="chapter"/></td></tr>--%>
     </table>
     <p> </p>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <input type="submit" value="ZAPISZ">
     <h3><a href="/teacher/allLessons">powrót do listy lekcji</a></h3>
 

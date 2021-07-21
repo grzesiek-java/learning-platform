@@ -18,7 +18,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @Controller
-@RequestMapping(value = "")
+@RequestMapping(value = "/")
 public class VisitorController {
 
     private final UserService userService;
@@ -31,7 +31,7 @@ public class VisitorController {
         return "visitorView/testV";
     }
 
-    @GetMapping(value = "/panel")
+    @GetMapping(value = "/")
     public String panelV(){
         return "visitorView/visitorPanel";
     }
@@ -51,7 +51,7 @@ public class VisitorController {
             return "visitorView/register";
         }
         userService.add(user);
-        return "visitorView/visitorPanel";
+        return "teacherView/teacherPanel";
     }
 
     @GetMapping("/login")
@@ -84,6 +84,6 @@ public class VisitorController {
         HttpServletRequest req = (HttpServletRequest) request;
         HttpSession httpSession = req.getSession();
         httpSession.removeAttribute("user");
-        return "redirect:/panel";
+        return "redirect:/";
     }
 }

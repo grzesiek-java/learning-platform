@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import pl.coderslab.model.Lesson;
 import pl.coderslab.model.Section;
 import pl.coderslab.model.User;
+import pl.coderslab.model.dto.LessonDto;
 import pl.coderslab.service.LessonService;
 import pl.coderslab.service.SectionService;
 import pl.coderslab.service.UserService;
@@ -51,7 +52,7 @@ public class TeacherController {
     public String showUsers(Model model) {
         List<User> users = userService.getUsers();
         model.addAttribute("users", users);
-        return "userView/all";
+        return "teacherView/allUsers";
     }
 
 // lessons
@@ -66,32 +67,35 @@ public class TeacherController {
     @GetMapping(value = "/addLesson")
     public String addLesson(Model model) {
         List<Section> sections = sectionService.getSections();
-        model.addAttribute("sections",sections);
         model.addAttribute("lesson", new Lesson());
+        model.addAttribute("sections",sections);
+        model.addAttribute("lessonDto", new LessonDto());
         return "teacherView/addLesson";
     }
     @PostMapping(value = "/addLesson")
-    public String saveLesson(Lesson lesson, BindingResult result) {
+    public String saveLesson(@Valid LessonDto lessonDto, BindingResult result) {
         if (result.hasErrors()) {
             return "/teacherView/addLesson";
         }
-        lessonService.add(lesson);
+        lessonService.add(lessonDto);
         return "redirect:/teacher/panel";
     }
 
     @GetMapping(value = "/editLesson/{id}")
-    public String updateLesson(@PathVariable long id, Model model) {
+    public String editLesson(@PathVariable long id, Model model) {
         Optional<Lesson> lesson = lessonService.get(id);
-        model.addAttribute("lesson", lesson.get());
-        return "teacherView/editLesson";
+        List<Section> sections = sectionService.getSections();
+        model.addAttribute("lessonDto", lesson);
+        model.addAttribute("sections",sections);
+        return "teacherView/addLesson";
     }
 
     @PostMapping(value = "/editLesson/{id}")
-    public String saveUpdatedLesson(@Valid Lesson lesson, BindingResult result) {
+    public String updateLesson(@Valid LessonDto lessonDto, BindingResult result,@PathVariable long id) {
         if (result.hasErrors()) {
-            return "teacherView/editLesson";
+            return "teacherView/addLesson";
         }
-        lessonService.add(lesson);
+        lessonService.updateLesson(lessonDto);
         return "redirect:/teacher/allLessons";
     }
 

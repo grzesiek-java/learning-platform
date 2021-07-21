@@ -1,28 +1,23 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: mocni
-  Date: 15.07.2021
-  Time: 07:04
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Edycja lekcji</title>
-</head>
-<body>
-<h3>Edycja lekcji</h3>
-<form:form method="post" modelAttribute="lesson">
 
-    <table border="1" cellpadding="5" style="background-color: lightgrey">
-        <tr><td>TYTUŁ LEKCJI</td><td><form:input size="100" path="title"/> <form:errors path="title"/></td></tr>
-        <tr><td>TREŚĆ LEKCJI</td><td><form:textarea cols="150" rows="40" path="content"/> <form:errors path="content"/></td></tr>
-            <%--        <tr><td>ROZDZIAŁ</td><td><form:input path="chapter"/> <form:errors path="chapter"/></td></tr>--%>
-    </table>
-    <p> </p>
-    <h3><a href="/teacher/allLessons">powrót do listy lekcji</a></h3>
+<jsp:include page="header.jsp"/>
 
-</form:form>
-</body>
-</html>
+<div class="container mx-auto" style="padding: 10px;margin: 5px">
+    <div class="card ">
+        <table class="tab1">
+            <thead>
+            <th>TEMAT LEKCJI</th><th><c:out value="${lesson.title}"/></th>
+            <%--    <th>TESTY</th>--%>
+            </thead>
+            <tbody>
+                <tr><td>ROZDZIAŁ</td><td><c:out value="${lesson.section.name}"/></td></tr>
+<%--                <tr><td>TREŚĆ LEKCJI</td><td><c:out value="${lesson.content}"/></td></tr>--%>
+                <tr><td>TREŚĆ LEKCJI</td><td><form:textarea cols="150" rows="25" path="lesson.content"/></td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<jsp:include page="footer.jsp"/>

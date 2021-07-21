@@ -7,12 +7,14 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@EqualsAndHashCode
 @Entity
 @Table(name = "sections")
 public class Section {
@@ -29,8 +31,9 @@ public class Section {
 //    @ManyToMany(mappedBy = "sections",fetch = FetchType.LAZY)
 //    private List<User> users = new ArrayList<>();
 
+    @EqualsAndHashCode.Exclude
+    @ToString.Exclude
     @OneToMany(mappedBy = "section",fetch = FetchType.EAGER)
     private List<Lesson> lessons;
-
 
 }

@@ -1,40 +1,26 @@
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: mocni
-  Date: 14.07.2021
-  Time: 20:46
-  To change this template use File | Settings | File Templates.
---%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Dodawanie lekcji</title>
-</head>
-<body>
-<h3>Dodawanie lekcji</h3>
-<form:form method="post" modelAttribute="lesson">
 
-    <table border="1" cellpadding="5" style="background-color: lightgrey">
+<jsp:include page="header.jsp"/>
+<form:form method="post" modelAttribute="lessonDto">
 
-        <tr>
-            <td>TEMAT LEKCJI</td>
-            <td><form:input size="100" path="title"/> <form:errors path="title"/></td>
-        </tr>
-        <tr>
-            <td>ROZDZIAŁ</td>
-            <td><form:select path="section" itemLabel="name" itemValue="id" id="" items="${sections}"/><form:errors path="section"/></td>
-        </tr>
-        <tr>
-            <td>TREŚĆ LEKCJI</td>
-            <td><form:textarea cols="150" rows="40" path="content"/> <form:errors path="content"/></td>
-        </tr>
+<div class="container mx-auto" style="padding: 10px;margin: 5px">
+    <div class="card ">
+        <table class="tab1">
+            <thead>
+            <th>TEMAT LEKCJI</th><th><form:input size="100" path="title"/> <form:errors path="title"/></th>
+            </thead>
+            <tbody>
+            <tr><td>ROZDZIAŁ</td><td><form:select path="section" itemLabel="name" itemValue="id" items="${sections}" multiple="false"/><form:errors path="section"/></td></tr>
+            <tr><td>TREŚĆ LEKCJI</td><td><form:textarea cols="150" rows="25" path="content"/><br><form:errors path="content"/></tr>
+            </tbody>
 
-    </table>
-    <p> </p>
-    <h2><input type="submit" value="ZAPISZ"></h2>
-
+        </table>
+        <input type="submit" class="btn btn-primary btn-block" value="ZAPISZ">
+    </div>
+</div>
 </form:form>
-</body>
-</html>
+<jsp:include page="footer.jsp"/>
+

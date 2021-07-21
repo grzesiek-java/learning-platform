@@ -1,29 +1,19 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: mocni
-  Date: 15.07.2021
-  Time: 07:43
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
-<head>
-    <title>Panel Nauczyciela</title>
-</head>
-<body>
-<h1>Witaj ${sessionScope.user.firstName} w panelu nauczyciela</h1>
+
+<jsp:include page="header.jsp"/>
+
+<div class="container mx-auto" style="padding: 10px;margin: 5px">
+    <div class="card ">
+        <div class="card-header">
+            Witaj ${sessionScope.user.firstName} w panelu nauczyciela
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p> tekst powitania + jakieś info </p>
+            </blockquote>
+        </div>
+    </div>
+</div>
 
 
-<ul>
-    <li><h3><a href="/register">Dodaj ucznia</a></h3></li>
-    <li><h3><a href="/teacher/allUsers">Lista uczniów</a></h3></li>
-    <li><h3><a href="/teacher/addLesson">Dodaj lekcję</a></h3></li>
-    <li><h3><a href="/teacher/allLessons">Lista Lekcji</a></h3></li>
-    <li><h3><a href="/teacher/addSection">Dodaj rozdział</a></h3></li>
-    <li><h3><a href="/teacher/allSections">Lista rozdziałów</a></h3></li>
-    <li><h3><a href="/teacher/addLessonSection">Dodaj lekcję do rozdziału</a></h3></li>
-    <li><h3><a href="/logout">Wyloguj</a></h3></li>
-</ul>
-
-</body>
-</html>
+<jsp:include page="footer.jsp"/>

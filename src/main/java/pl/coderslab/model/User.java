@@ -41,7 +41,7 @@ public class User {
     @Column(unique = true, columnDefinition = "varchar(50)")
     private String email;
 
-    @Size(min = 8,message = "min.8 znaków")
+    @Size(min = 1,message = "min.8 znaków")
     @Column(columnDefinition = "varchar(255)")
     private String password;
 

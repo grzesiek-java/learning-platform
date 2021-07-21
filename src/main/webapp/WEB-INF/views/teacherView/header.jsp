@@ -1,0 +1,39 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"  integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="<c:url value="/resources/css/app.css"/>" rel="stylesheet">
+</head>
+<body>
+<div class="sidenav" style="background-color: royalblue">
+    <p><i class="fa fa-fw fa-user"></i> ${sessionScope.user.firstName}</p>
+    <p>&nbsp;</p>
+
+
+    <a href="/teacher/panel">Start</a>
+    <div class="divider"></div>
+    <a href="/teacher/allUsers">Lista uczniów</a>
+    <a href="/register">Dodaj ucznia</a>
+    <div class="divider"></div>
+    <a href="/teacher/allLessons">Lista Lekcji</a>
+    <a href="/teacher/addLesson">Dodaj lekcję</a>
+    <div class="divider"></div>
+    <a href="/teacher/allSections">Lista rozdziałów</a>
+    <a href="/teacher/addSection">Dodaj rozdział</a>
+    <a href="/teacher/addLessonSection">Dodaj lekcję do rozdziału</a>
+    <div class="divider"></div>
+    <a href="/logout">Wyjście</a></li>
+
+</div>
+<div class="main">
+    <div class="topnav">
+        <a>platforma edukacyjna</a>
+        <%--        <a class="active" href="#home">Home</a>--%>
+        <div class="topnav-right">
+            <a href="/logout">wyjście</a>
+        </div>
+    </div>
