@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import pl.coderslab.model.User;
 import pl.coderslab.repository.UserRepository;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class JpaUserService implements UserService{
@@ -21,6 +22,11 @@ public class JpaUserService implements UserService{
     }
 
     @Override
+    public Optional<User> get(Long id) {
+        return userRepository.findById(id);
+    }
+
+    @Override
     public void add(User user){
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
         userRepository.save(user);
@@ -31,6 +37,10 @@ public class JpaUserService implements UserService{
         return userRepository.findUserByEmail(email);
     }
 
+    @Override
+    public void delete(Long id) {
+        userRepository.deleteById(id);
+    }
 
 
 }

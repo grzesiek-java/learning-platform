@@ -11,6 +11,7 @@
             <th>IMIĘ</th>
             <th>NAZWISKO</th>
             <th>EMAIL</th>
+            <th width="300px"></th>
             </thead>
             <tbody>
             <c:forEach items="${users}" var="u">
@@ -19,6 +20,11 @@
                     <td><c:out value="${u.firstName}"/></td>
                     <td><c:out value="${u.lastName}"/></td>
                     <td><c:out value="${u.email}"/></td>
+                    <td>
+                        <a class="btn btn-info btn-sm" href="<c:out value="/teacher/editUserSections/${u.id}"/>">UDOSTĘPNIONE ROZDZIAŁY</a>&nbsp;&nbsp;
+                        <a class="btn btn-danger btn-sm" href="<c:out value="/teacher/deleteUser/${u.id}"/>">USUŃ</a>
+                    </td>
+
                 </tr>
             </c:forEach>
             </tbody>

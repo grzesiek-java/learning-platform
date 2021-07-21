@@ -55,6 +55,19 @@ public class TeacherController {
         return "teacherView/allUsers";
     }
 
+    @GetMapping("/deleteUser/{id}")
+    public String deleteUserGet(@PathVariable Long id, Model model) {
+        Optional<User> user = userService.get(id);
+        model.addAttribute("user", user.get());
+        return "/teacherView/deleteUser";
+    }
+
+    @PostMapping("/deleteUser/{id}")
+    public String deleteUserPost(@RequestParam Long id) {
+        userService.delete(id);
+        return "redirect:/teacher/allUsers";
+    }
+
 // lessons
 
     @GetMapping(value = "/allLessons")
