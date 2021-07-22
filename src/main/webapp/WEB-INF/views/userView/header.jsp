@@ -15,6 +15,8 @@
 
     <a href="/user/panel">Start</a>
     <div class="divider"></div>
+
+    <div class="divider"></div>
     <a href="/logout">Wyjście</a>
 <%--    <a href="/login">--%>
 <%--        <i class="fa fa-fw fa-user"></i>--%>

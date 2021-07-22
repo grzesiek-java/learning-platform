@@ -32,7 +32,4 @@ public class Lesson {
     @ManyToOne(fetch = FetchType.EAGER)
     private Section section;
 
-    //@OneToOne(mappedBy = "lesson", cascade = CascadeType.ALL)
-//    @OneToOne(mappedBy = "lesson")
-//    private Test test;
 }

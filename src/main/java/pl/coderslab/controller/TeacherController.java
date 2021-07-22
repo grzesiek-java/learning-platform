@@ -46,6 +46,35 @@ public class TeacherController {
         return "teacherView/teacherPanel";
     }
 
+// users/sections
+
+    @GetMapping(value = "/editUserSections/{id}")
+    public String editUserSectionsGet(@PathVariable Long id,Model model){
+        Optional<User> user = userService.get(id);
+        List<Section> sections = sectionService.getSections();
+        model.addAttribute("user", user.get());
+        model.addAttribute("sections", sections);
+        return "teacherView/editUserSections";
+    }
+    @PostMapping(value="/addUserSection/{userId}/{sectionId}")
+    public String editUserSectionsAdd(@PathVariable Long userId,@PathVariable Long sectionId,Model model){
+        Optional<User> user = userService.get(userId);
+        Section section = sectionService.get(sectionId);
+
+        // jak to dodać do tabeli users_sections
+
+        return "/editUserSections/{userId}";
+    }
+    @PostMapping(value="/deleteUserSection/{userId}/{sectionId}")
+    public String editUserSectionsDelete(@PathVariable Long userId,@PathVariable Long sectionId,Model model){
+        Optional<User> user = userService.get(userId);
+        Section section = sectionService.get(sectionId);
+
+        // jak to usunąć z tabeli users_sections
+
+        return "/editUserSections/{userId}";
+    }
+
 // users
 
     @GetMapping(value = "/allUsers")
@@ -67,6 +96,7 @@ public class TeacherController {
         userService.delete(id);
         return "redirect:/teacher/allUsers";
     }
+
 
 // lessons
 

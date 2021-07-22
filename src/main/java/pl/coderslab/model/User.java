@@ -49,4 +49,5 @@ public class User {
 
     @ManyToMany(fetch = FetchType.EAGER)
     private List<Section> sections = new ArrayList<>();
+
 }
