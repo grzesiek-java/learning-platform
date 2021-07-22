@@ -50,24 +50,24 @@ public class TeacherController {
 
     @GetMapping(value = "/editUserSections/{id}")
     public String editUserSectionsGet(@PathVariable Long id,Model model){
-        Optional<User> user = userService.get(id);
+        User user = userService.get(id);
         List<Section> sections = sectionService.getSections();
-        model.addAttribute("user", user.get());
+        model.addAttribute("user", user);
         model.addAttribute("sections", sections);
         return "teacherView/editUserSections";
     }
     @PostMapping(value="/addUserSection/{userId}/{sectionId}")
     public String editUserSectionsAdd(@PathVariable Long userId,@PathVariable Long sectionId,Model model){
-        Optional<User> user = userService.get(userId);
+        User user = userService.get(userId);
         Section section = sectionService.get(sectionId);
-
+        //user.setSections();
         // jak to dodać do tabeli users_sections
 
         return "/editUserSections/{userId}";
     }
     @PostMapping(value="/deleteUserSection/{userId}/{sectionId}")
     public String editUserSectionsDelete(@PathVariable Long userId,@PathVariable Long sectionId,Model model){
-        Optional<User> user = userService.get(userId);
+        User user = userService.get(userId);
         Section section = sectionService.get(sectionId);
 
         // jak to usunąć z tabeli users_sections
@@ -86,8 +86,8 @@ public class TeacherController {
 
     @GetMapping("/deleteUser/{id}")
     public String deleteUserGet(@PathVariable Long id, Model model) {
-        Optional<User> user = userService.get(id);
-        model.addAttribute("user", user.get());
+        User user = userService.get(id);
+        model.addAttribute("user", user);
         return "/teacherView/deleteUser";
     }
 
@@ -96,7 +96,6 @@ public class TeacherController {
         userService.delete(id);
         return "redirect:/teacher/allUsers";
     }
-
 
 // lessons
 
@@ -134,7 +133,7 @@ public class TeacherController {
     }
 
     @PostMapping(value = "/editLesson/{id}")
-    public String updateLesson(@Valid LessonDto lessonDto, BindingResult result,@PathVariable long id) {
+    public String updateLesson(@Valid LessonDto lessonDto, BindingResult result) {
         if (result.hasErrors()) {
             return "teacherView/addLesson";
         }
@@ -194,7 +193,7 @@ public class TeacherController {
     }
 
     @PostMapping(value = "/editSection/{id}")
-    public String updateSection(@Valid Section section, BindingResult result,@PathVariable long id) {
+    public String updateSection(@Valid Section section, BindingResult result) {
         if (result.hasErrors()) {
             return "teacherView/addSection";
         }

@@ -33,6 +33,18 @@ public class VisitorController {
 
     @GetMapping(value = "/")
     public String panelV(){
+
+        User user = new User();
+        user.setFirstName("Madzia");
+        user.setLastName("Madzia");
+        user.setEmail("qqq@qqq");
+        user.setAdmin(1);
+        user.setPassword("qqq");//zmienić !!!!!!!!!!
+
+        User user1 = userService.findUserByEmail("qqq@qqq");
+        if (user1 == null) {
+            userService.add(user);
+        }
         return "visitorView/visitorPanel";
     }
 

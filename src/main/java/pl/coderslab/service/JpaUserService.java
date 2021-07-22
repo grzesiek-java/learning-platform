@@ -22,8 +22,8 @@ public class JpaUserService implements UserService{
     }
 
     @Override
-    public Optional<User> get(Long id) {
-        return userRepository.findById(id);
+    public User get(Long id) {
+        return userRepository.findById(id).orElse(null);
     }
 
     @Override
