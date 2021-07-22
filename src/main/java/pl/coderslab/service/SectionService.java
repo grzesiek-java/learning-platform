@@ -15,4 +15,6 @@ public interface SectionService {
     Section get(Long id);
 
     void delete(Long id);
+
+    Section update(Section section);
 }

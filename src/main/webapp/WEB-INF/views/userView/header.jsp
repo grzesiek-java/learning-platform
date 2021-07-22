@@ -15,6 +15,15 @@
 
     <a href="/user/panel">Start</a>
     <div class="divider"></div>
+    <a <c:out value="${sessionScope.user.id}"/>${sessionScope.user.firstName} </a>
+
+    <c:forEach items="${sessionScope.user.sections}" var="section">
+
+
+        <a <c:out value="${section.id}"/> >
+        ${section.name} </a>
+
+    </c:forEach>
 
     <div class="divider"></div>
     <a href="/logout">Wyjście</a>

@@ -36,6 +36,11 @@ public class JpaSectionService implements SectionService {
     public void delete(Long id) {
         sectionRepository.deleteById(id);
     }
+
+    @Override
+    public Section update(Section section) {
+        return sectionRepository.save(section);
+    }
 }
 
 

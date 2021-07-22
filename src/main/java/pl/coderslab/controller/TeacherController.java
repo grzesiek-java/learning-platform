@@ -186,6 +186,22 @@ public class TeacherController {
         return "redirect:/teacher/allSections";
     }
 
+    @GetMapping(value = "/editSection/{id}")
+    public String editSection(@PathVariable long id, Model model) {
+        Section section = sectionService.get(id);
+        model.addAttribute("section",section);
+        return "teacherView/addSection";
+    }
+
+    @PostMapping(value = "/editSection/{id}")
+    public String updateSection(@Valid Section section, BindingResult result,@PathVariable long id) {
+        if (result.hasErrors()) {
+            return "teacherView/addSection";
+        }
+        sectionService.update(section);
+        return "redirect:/teacher/allSections";
+    }
+
     @GetMapping("/deleteSection/{id}")
     public String deleteSectionGet(@PathVariable Long id, Model model) {
         Optional<Section> section = Optional.ofNullable(sectionService.get(id));
