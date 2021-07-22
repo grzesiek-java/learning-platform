@@ -18,9 +18,8 @@
 
     <c:forEach items="${sessionScope.user.sections}" var="section">
 
-
         <a href="/user/showUserLessons/${section.id}">
-<%--            <c:out value="${section.id}"/>--%>
+
         ${section.name}
         </a>
 
@@ -28,12 +27,7 @@
 
     <div class="divider"></div>
     <a href="/logout">Wyjście</a>
-<%--    <a href="/login">--%>
-<%--        <i class="fa fa-fw fa-user"></i>--%>
-<%--        Logowanie</a>--%>
-<%--    <a href="/register">--%>
-<%--        &lt;%&ndash;        <i class="fa fa-fw fa-home"></i>&ndash;%&gt;--%>
-<%--        Rejestracja</a>--%>
+
 </div>
 <div class="main">
 

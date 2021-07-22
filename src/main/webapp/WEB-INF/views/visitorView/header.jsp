@@ -12,20 +12,17 @@
 <div class="sidenav">
     <p></p>
     <a href="/login">
-        <%--        <i class="fa fa-fw fa-user"></i>--%>
+
         Logowanie</a>
     <a href="/register">
-        <%--        <i class="fa fa-fw fa-home"></i>--%>
+
         Rejestracja</a>
 </div>
 <div class="main">
     <div class="topnav">
         <a>platforma edukacyjna</a>
-        <%--        <a class="active" href="#home">Home</a>--%>
-        <%--        <a href="#news">News</a>--%>
-        <%--        <a href="#contact">Contact</a>--%>
 
         <div class="topnav-right">
-            <%--            <a href="#about">About</a>--%>
+
         </div>
     </div>

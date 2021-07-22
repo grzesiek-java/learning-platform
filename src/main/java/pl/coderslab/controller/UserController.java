@@ -56,13 +56,4 @@ public class UserController {
         return "userView/showLesson";
     }
 
-
-//    @GetMapping(value = "/editUserSections/{id}")
-//    public String editUserSectionsGet(@PathVariable Long id, Model model){
-//        Optional<User> user = userService.get(id);
-//        List<Section> sections = sectionService.getSections();
-//        model.addAttribute("user", user.get());
-//        model.addAttribute("sections", sections);
-//        return "teacherView/editUserSections";
-//    }
 }

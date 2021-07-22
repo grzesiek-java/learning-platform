@@ -21,19 +21,6 @@
             <%--        <tr><td>ROZDZIAŁ</td><td><form:input path="chapter"/> <form:errors path="chapter"/></td></tr>--%>
     </table>
     <p> </p>
-
-
-
-
-
-
-
-
-
-
-
-
-
     <input type="submit" value="ZAPISZ">
     <h3><a href="/teacher/allLessons">powrót do listy lekcji</a></h3>
 
