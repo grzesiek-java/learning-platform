@@ -60,7 +60,7 @@ public class TeacherController {
     public String editUserSectionsAdd(@PathVariable Long userId,@PathVariable Long sectionId,Model model){
         User user = userService.get(userId);
         Section section = sectionService.get(sectionId);
-        //user.setSections();
+//        user.setSections();
         // jak to dodać do tabeli users_sections
 
         return "/editUserSections/{userId}";
