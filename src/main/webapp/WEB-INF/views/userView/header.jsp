@@ -17,12 +17,9 @@
     <div class="divider"></div>
 
     <c:forEach items="${sessionScope.user.sections}" var="section">
-
         <a href="/user/showUserLessons/${section.id}">
-
         ${section.name}
         </a>
-
     </c:forEach>
 
     <div class="divider"></div>

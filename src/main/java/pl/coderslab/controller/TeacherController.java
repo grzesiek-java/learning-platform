@@ -13,7 +13,9 @@ import pl.coderslab.service.LessonService;
 import pl.coderslab.service.SectionService;
 import pl.coderslab.service.UserService;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -56,23 +58,37 @@ public class TeacherController {
         model.addAttribute("sections", sections);
         return "teacherView/editUserSections";
     }
-    @PostMapping(value="/addUserSection/{userId}/{sectionId}")
-    public String editUserSectionsAdd(@PathVariable Long userId,@PathVariable Long sectionId,Model model){
+    @GetMapping(value="/addUserSection/{userId}/{sectionId}")
+    public String editUserSectionsAdd(@PathVariable Long userId, @PathVariable Long sectionId, Model model, HttpServletRequest request){
         User user = userService.get(userId);
         Section section = sectionService.get(sectionId);
-//        user.setSections();
-        // jak to dodać do tabeli users_sections
 
-        return "/editUserSections/{userId}";
+        if(user!=null && section!=null) {
+            if (user.getSections() == null) {
+                user.setSections(new ArrayList<>());
+            }
+            user.getSections().add(section);
+            userService.save(user);
+        }
+        String referer = request.getHeader("Referer");
+        return "redirect:"+referer;
+        //return "/editUserSections/{userId}";
     }
-    @PostMapping(value="/deleteUserSection/{userId}/{sectionId}")
-    public String editUserSectionsDelete(@PathVariable Long userId,@PathVariable Long sectionId,Model model){
+    @GetMapping(value="/deleteUserSection/{userId}/{sectionId}")
+    public String editUserSectionsDelete(@PathVariable Long userId,@PathVariable Long sectionId,Model model,HttpServletRequest request){
         User user = userService.get(userId);
         Section section = sectionService.get(sectionId);
 
-        // jak to usunąć z tabeli users_sections
-
-        return "/editUserSections/{userId}";
+        if(user!=null && section!=null) {
+            if (user.getSections() == null) {
+                user.setSections(new ArrayList<>());
+            }
+            user.getSections().remove(section);
+            userService.save(user);
+        }
+        String referer = request.getHeader("Referer");
+        return "redirect:"+referer;
+       // return "/editUserSections/{userId}";
     }
 
 // users

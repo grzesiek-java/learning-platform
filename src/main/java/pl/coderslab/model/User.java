@@ -48,6 +48,6 @@ public class User {
     private int admin = 0;
 
     @ManyToMany(fetch = FetchType.EAGER)
-    private List<Section> sections = new ArrayList<>();
+    private List<Section> sections;
 
 }

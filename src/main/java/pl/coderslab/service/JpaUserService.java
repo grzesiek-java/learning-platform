@@ -2,6 +2,7 @@ package pl.coderslab.service;
 
 import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import pl.coderslab.model.User;
 import pl.coderslab.repository.UserRepository;
 import java.util.List;
@@ -29,6 +30,12 @@ public class JpaUserService implements UserService{
     @Override
     public void add(User user){
         user.setPassword(BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
+        userRepository.save(user);
+    }
+
+    @Transactional
+    @Override
+    public void save(User user) {
         userRepository.save(user);
     }
 
